@@ -1,0 +1,57 @@
+/* Header logo */
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Hero logo */
+.hero-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+/* Header layout */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: linear-gradient(90deg, #0d3b66, #138f8f); /* Indigo --> Teal */
+  color: #fff;
+}
+
+.navbar a {
+  color: #fff;
+  margin-left: 22px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  color: #aeecef;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: #f0f9fb;
+}
+
+.hero h1 {
+  color: #0d3b66;
+  font-size: 48px;
+}
+
+.hero h2 {
+  color: #138f8f;
+  font-size: 24px;
+  margin-top: 10px;
+}
