@@ -80,3 +80,15 @@
     margin-bottom: 8px;
 }
 
+.project-card {
+    text-align: left;
+}
+
+.project-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+
+
