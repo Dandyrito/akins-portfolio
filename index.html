@@ -151,25 +151,6 @@
 </style>
 </head>
 
-<script>
-function openModal(id) {
-    document.getElementById(id).style.display = "flex";
-}
-
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-
-// Close when clicking outside modal
-window.onclick = function(e) {
-    document.querySelectorAll('.modal-overlay').forEach(modal => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-</script>
-
 <body>
 
 <!-- HEADER -->
@@ -247,109 +228,141 @@ window.onclick = function(e) {
 <section id="projects">
     <h3>Projects</h3>
 
-    <!-- MODAL : AWS Hybrid Cloud Project -->
-    <div class="modal-overlay" id="modal-aws">
-       <div class="modal">
-    		<span class="close-modal" onclick="closeModal('modal-aws')">&times;</span>
-    		<h3>AWS Infrastructure Modernization – Project Details</h3>
-            <ul>
-            	<li>Designed and implemented hybrid AWS/on-prem architecture using EC2, VPC, S3, CloudWatch, and Auto Scaling.</li>
-            	<li>Migrated workloads from legacy VMware clusters to AWS, improving scalability and performance.</li>
-            	<li>Automated provisioning with Terraform and CloudFormation, reducing deployment time by 40%.</li>
-            	<li>Improved system reliability through enhanced monitoring and alerting.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-aws')">
-    			View Project Details
-			</button>
-		</div>
+    <!-- AWS Project -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/cloud-server.png" class="project-icon" alt="Cloud Icon">
+            <h4>AWS Infrastructure Modernization</h4>
+        </div>
+        <p>Hybrid cloud migration, automation, and monitoring modernization.</p>
+        <button class="project-details-btn" onclick="openModal('modal-aws')">View Project Details</button>
     </div>
 
-    <!-- MODAL: Intune / Autopilot Project -->
-    <div class="modal-overlay" id="modal-intune-autopilot">
-  		<div class="modal">
-   			<span class="close-modal" onclick="closeModal('modal-intune-autopilot')">&times;</span>
-            <h3>Secure Device Management with Intune & Autopilot</h3>
-            <ul>
-            <li>Led enterprise rollout of Intune and Autopilot to modernize end-user device lifecycle.</li>
-            <li>Implemented compliance policies, configuration profiles, and conditional access.</li>
-            <li>Reduced onboarding time by 60% with automated provisioning.</li>
-            <li>Published knowledge base documentation to support global teams.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-intune-autopilot')">
-    			View Project Details
-			</button>
-		</div>
+    <!-- Intune Project -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/secure-endpoint.png" class="project-icon" alt="Endpoint Icon">
+            <h4>Intune & Autopilot Deployment</h4>
+        </div>
+        <p>Modern device management, compliance enforcement and provisioning automation.</p>
+        <button class="project-details-btn" onclick="openModal('modal-intune')">View Project Details</button>
     </div>
 
-    <!-- MODAL: Network Upgrade Project -->
-   <div class="modal-overlay" id="modal-network">
-  		<div class="modal">
-   			<span class="close-modal" onclick="closeModal('modal-network')">&times;</span>
-            <h3>Enterprise Network Upgrade & Performance Optimization</h3>
-            <ul>
-            <li>Delivered multi-site network modernization across switches, APs, firewalls, and routing.</li>
-            <li>Improved network reliability using advanced telemetry dashboards.</li>
-            <li>Enhanced Wi-Fi performance in high-density environments.</li>
-            <li>Strengthened network security through segmentation and ACL optimization.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-network')">
-    			View Project Details
-			</button>
-		</div>
+    <!-- Network Project -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/network-topology.png" class="project-icon" alt="Network Icon">
+            <h4>Network Upgrade & Optimization</h4>
+        </div>
+        <p>Multi-site network refresh, Wi-Fi optimization and segmentation redesign.</p>
+        <button class="project-details-btn" onclick="openModal('modal-network')">View Project Details</button>
     </div>
 
-<!-- MODAL: ADDS Project -->
-    <div class="modal-overlay" id="modal-adds">
-  		<div class="modal">
-    		<span class="close-modal" onclick="closeModal('modal-adds')">&times;</span>
-    		<h3>Active Directory Domain Services – Project Details</h3>
-        	<ul>
-            <li>Performed AD forest/domain cleanup and consolidation.</li>
-			<li>Led enterprise-wide ADDS cleanup and consolidation across multi-domain environments.</li>
-            <li>Implemented GPO security baselines, role governance, and identity policies.</li>
-            <li>Optimized domain controller placement and replication topology.</li>
-            <li>Strengthened identity security with RBAC, MFA, and privileged access controls.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-adds')">
-    			View Project Details
-			</button>
-		</div>
+    <!-- ADDS Project -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/ad-ds.png" class="project-icon" alt="AD Icon">
+            <h4>Active Directory Domain Consolidation</h4>
+        </div>
+        <p>Security hardening, identity governance, and forest/domain cleanup.</p>
+        <button class="project-details-btn" onclick="openModal('modal-adds')">View Project Details</button>
     </div>
 
-<!-- MODAL: DNS Project -->
-   <div class="modal-overlay" id="modal-dns">
-  		<div class="modal">
-   			<span class="close-modal" onclick="closeModal('modal-dns')">&times;</span>
-    		<h3>DNS Security, Optimization & High Availability Project</h3>
-       		<ul>
-            <li>Modernized DNS architecture for improved reliability and performance.</li>
-            <li>Implemented DNS failover, scavenging, replication tuning, and split-brain DNS.</li>
-            <li>Reduced DNS-related incidents by 40% via enhanced monitoring and secure configuration.</li>
-            <li>Hardened DNS against spoofing, cache poisoning, and misconfigurations.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-adns')">
-    			View Project Details
-			</button>
-	   </div>
+    <!-- DNS Project -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/dns.png" class="project-icon" alt="DNS Icon">
+            <h4>DNS Security & High Availability</h4>
+        </div>
+        <p>DNS failover, secure configuration, replication tuning and HA.</p>
+        <button class="project-details-btn" onclick="openModal('modal-dns')">View Project Details</button>
     </div>
 
-    <!-- MODAL : M365 Tenant Project -->
-    <div class="modal-overlay" id="modal-m365">
-  		<div class="modal">
-   			<span class="close-modal" onclick="closeModal('modal-m365')">&times;</span>
-			<h3>Microsoft 365 Tenant Management & Governance Modernization</h3>
-            <ul>
-            <li>Managed full M365 tenant: Exchange Online, Teams, SharePoint, OneDrive, & security controls.</li>
-            <li>Developed lifecycle governance for identity, mailflow, licensing, and retention policies.</li>
-            <li>Strengthened tenant security using Conditional Access, DLP, and identity protection.</li>
-            <li>Automated M365 operations using PowerShell, reducing manual workload significantly.</li>
-        	</ul>
-			<button class="project-details-btn" onclick="openModal('modal-m365')">
-    			View Project Details
-			</button>
-		 </div>
+    <!-- M365 Tenant -->
+    <div class="card project-card">
+        <div class="project-header">
+            <img src="assets/icons/tenant-management.png" class="project-icon" alt="M365 Icon">
+            <h4>Microsoft 365 Tenant Governance</h4>
+        </div>
+        <p>Identity lifecycle, mailflow, security policies and automation.</p>
+        <button class="project-details-btn" onclick="openModal('modal-m365')">View Project Details</button>
     </div>
 </section>
+<!-- AWS Modal -->
+<div class="modal-overlay" id="modal-aws">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-aws')">&times;</span>
+        <h3>AWS Infrastructure Modernization – Details</h3>
+        <ul>
+            <li>Hybrid cloud migration using EC2, S3, VPC, CloudWatch & Auto Scaling.</li>
+            <li>VMware workload migration and performance improvement.</li>
+            <li>Automation using Terraform & CloudFormation.</li>
+            <li>Enhanced reliability via monitoring pipelines.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- INTUNE Modal -->
+<div class="modal-overlay" id="modal-intune">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-intune')">&times;</span>
+        <h3>Intune & Autopilot Project – Details</h3>
+        <ul>
+            <li>Modern device management rollout.</li>
+            <li>Compliance policies, profiles & conditional access.</li>
+            <li>60% reduction in onboarding time.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- NETWORK Modal -->
+<div class="modal-overlay" id="modal-network">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-network')">&times;</span>
+        <h3>Network Upgrade Project – Details</h3>
+        <ul>
+            <li>Switches, APs, firewalls refresh.</li>
+            <li>Telemetry-based performance optimization.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ADDS Modal -->
+<div class="modal-overlay" id="modal-adds">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-adds')">&times;</span>
+        <h3>Active Directory Domain Consolidation – Details</h3>
+        <ul>
+            <li>Multi-domain cleanup & consolidation.</li>
+            <li>GPO hardening and identity governance.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- DNS Modal -->
+<div class="modal-overlay" id="modal-dns">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-dns')">&times;</span>
+        <h3>DNS Security Optimization – Details</h3>
+        <ul>
+            <li>Failover, scavenging & HA DNS design.</li>
+            <li>Security hardening against spoofing & poisoning.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- M365 Modal -->
+<div class="modal-overlay" id="modal-m365">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal('modal-m365')">&times;</span>
+        <h3>M365 Tenant Modernization – Details</h3>
+        <ul>
+            <li>Tenant lifecycle governance.</li>
+            <li>Exchange, Teams, SharePoint management.</li>
+            <li>Security policies, DLP, CA enforcement.</li>
+        </ul>
+    </div>
+</div>
 
 <!-- SKILLS -->
 <section id="skills">
@@ -405,5 +418,22 @@ window.onclick = function(e) {
     © 2025 Akinkunni (Akins) Akinbajo — All Rights Reserved
 </footer>
 
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    // Close when clicking outside
+    window.onclick = function(event) {
+        document.querySelectorAll(".modal-overlay").forEach(modal => {
+            if (event.target === modal) modal.style.display = "none";
+        });
+    };
+</script>
+	
 </body>
 </html>
