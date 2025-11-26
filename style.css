@@ -25,6 +25,9 @@
   padding: 18px 40px;
   background: linear-gradient(90deg, #0d3b66, #138f8f); /* Indigo --> Teal */
   color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar a {
@@ -56,39 +59,32 @@
   margin-top: 10px;
 }
 
+/* PROJECTS SECTION */
+
+/* Uniform project card styling */
 #projects .card {
-    border-left: 4px solid var(--teal);
-    transition: 0.3s ease;
+  border-left: 4px solid var(--teal);
+  transition: 0.3s ease;
+  margin: 20px 0;
 }
 
+/* Hover effect */
 #projects .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.project-icon {
-    width: 28px;
-    height: 28px;
-    margin-right: 10px;
-    vertical-align: middle;
-    opacity: 0.9;
-}
-
+/* Project header row */
 .project-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.project-card {
-    text-align: left;
-}
-
+/* Project icon (final, unified style) */
 .project-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-    opacity: 0.95;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  opacity: 0.9;
 }
-
-
