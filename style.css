@@ -65,4 +65,18 @@
     transform: translateY(-4px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-\
+
+.project-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    vertical-align: middle;
+    opacity: 0.9;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
