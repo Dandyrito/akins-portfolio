@@ -399,6 +399,51 @@ footer {
 .card.contact .resume-button:hover {
   background: #005a9e;
 }
+/* ==================== Contact Card ==================== */
+.card.contact {
+  text-align: center;
+}
+
+/* Centered text with icons */
+.card.contact p {
+  margin: 8px 0;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card.contact p.email::before {
+  content: "✉️";
+  font-size: 1.2em;
+}
+
+.card.contact p.phone::before {
+  content: "📞";
+  font-size: 1.2em;
+}
+
+/* Resume button */
+.card.contact .resume-button {
+  display: inline-block;
+  margin-top: 12px;
+  background: #0078d4;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.card.contact .resume-button:hover {
+  background: #005a9e;
+}
+
+/* Glow effect when Contact card appears */
+#contact .card.show-on-scroll {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #c0392b; /* red glow */
+}
 
 /* ==================== Section Headings ==================== */
 #about h3 {
@@ -574,4 +619,5 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
 
