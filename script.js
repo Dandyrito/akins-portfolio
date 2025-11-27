@@ -73,62 +73,84 @@ const projects = [
       "Exchange, Teams, SharePoint management.",
       "Security policies, DLP, CA enforcement."
     ]
+  },
+  {
+    id: "windows",
+    title: "Windows Infrastructure Projects",
+    icon: "assets/icons/windows-logo.png", // ensure this file exists
+    desc: "Enterprise Windows deployments, automation, and system optimization.",
+    details: [
+      { title: "🖥️ Windows Server", content: "Upgrades, clustering, and Active Directory enhancements." },
+      { title: "📂 Group Policy", content: "Design, hardening, and compliance enforcement." },
+      { title: "⚙️ OS Deployment", content: "Automated builds with MDT and Intune Autopilot." },
+      { title: "📊 Performance", content: "Tuning and monitoring with native Windows tools." },
+      { title: "🔒 Endpoint Security", content: "Patch management, Defender ATP, and vulnerability remediation." },
+      { title: "💻 Enterprise Wide Windows OS Upgrade", content: "Windows 7 → 10 and Windows 10 → 11 migration." },
+      { title: "🔧 Enterprise SCCM Modernization & Patch Optimization", content: "Infrastructure upgrade, patch cycle optimization, and co‑management with Intune." }
+    ]
   }
 ];
 
-// ==================== Generate Project Cards & Modals ====================
-const container = document.getElementById("projects-container");
-
-projects.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "card project-card";
-  card.innerHTML = `
-    <div class="project-header">
-      <img src="${p.icon}" class="project-icon" alt="${p.title} Icon" loading="lazy">
-      <h4>${p.title}</h4>
-    </div>
-    <p>${p.desc}</p>
-    <button class="project-details-btn" data-modal="${p.id}">View Project Details</button>
-  `;
-  container.appendChild(card);
-
-  // ✅ Observe dynamically added cards
-  observer.observe(card);
-
-  const modalOverlay = document.createElement("div");
-  modalOverlay.className = "modal-overlay";
-  modalOverlay.id = `modal-${p.id}`;
-  modalOverlay.innerHTML = `
-    <div class="modal">
-      <span class="close-modal">&times;</span>
-      <h3>${p.title} – Details</h3>
-      <ul>${p.details.map(d => `<li>${d}</li>`).join("")}</ul>
-    </div>
-  `;
-  document.body.appendChild(modalOverlay);
-});
-
-// ==================== Modal Logic ====================
-document.addEventListener("click", e => {
-  if (e.target.matches('.project-details-btn')) {
-    document.getElementById(`modal-${e.target.dataset.modal}`).style.display = "flex";
-  } else if (e.target.matches('.close-modal')) {
-    e.target.closest('.modal-overlay').style.display = "none";
-  } else if (e.target.classList.contains('modal-overlay')) {
-    e.target.style.display = "none";
-  }
-});
-
-// ==================== Scroll Animations ====================
-const scrollElems = document.querySelectorAll('section, .card, .hero h1, .hero h2, .hero-logo');
-scrollElems.forEach(el => observer.observe(el));
-
-// ==================== Sync <title> with Hero Section ====================
+// ==================== DOM-Ready Initialization ====================
 document.addEventListener("DOMContentLoaded", () => {
-  // Get the <title> text
-  const pageTitle = document.title;
+  // ---------- Generate Project Cards & Modals ----------
+  const container = document.getElementById("projects-container");
+  if (container) {
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card project-card";
+      card.innerHTML = `
+        <div class="project-header">
+          <img src="${p.icon}" class="project-icon" alt="${p.title} Icon" loading="lazy">
+          <h4>${p.title}</h4>
+        </div>
+        <p>${p.desc}</p>
+        <button class="project-details-btn" data-modal="${p.id}">View Project Details</button>
+      `;
+      container.appendChild(card);
+      observer.observe(card);
 
-  // Try to split into name and subtitle using " - "
+      const modalOverlay = document.createElement("div");
+      modalOverlay.className = "modal-overlay";
+      modalOverlay.id = `modal-${p.id}`;
+
+      let detailsHTML = "";
+      if (Array.isArray(p.details) && p.details.length && typeof p.details[0] === "object") {
+        const accordionItems = p.details.map(d => `
+          <div class="accordion-item">
+            <button class="accordion-header">${d.title}</button>
+            <div class="accordion-content"><p>${d.content}</p></div>
+          </div>
+        `).join("");
+
+        detailsHTML = `
+          <div class="accordion-controls">
+            <button id="expand-all-${p.id}" class="accordion-toggle">Expand All</button>
+            <button id="collapse-all-${p.id}" class="accordion-toggle">Collapse All</button>
+          </div>
+          ${accordionItems}
+        `;
+      } else {
+        detailsHTML = `<ul>${(p.details || []).map(d => `<li>${d}</li>`).join("")}</ul>`;
+      }
+
+      modalOverlay.innerHTML = `
+        <div class="modal">
+          <span class="close-modal">&times;</span>
+          <h3>${p.title} – Details</h3>
+          ${detailsHTML}
+        </div>
+      `;
+      document.body.appendChild(modalOverlay);
+    });
+  }
+
+  // ---------- Scroll Animations ----------
+  const scrollElems = document.querySelectorAll('section, .card, .hero h1, .hero h2, .hero-logo');
+  scrollElems.forEach(el => observer.observe(el));
+
+  // ---------- Sync <title> with Hero Section ----------
+  const pageTitle = document.title;
   let name = pageTitle;
   let subtitle = "";
 
@@ -138,69 +160,126 @@ document.addEventListener("DOMContentLoaded", () => {
     subtitle = parts[1].trim();
   }
 
-  // Inject into hero section
   const heroTitle = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
 
   if (heroTitle) heroTitle.textContent = name;
   if (heroSubtitle && subtitle) heroSubtitle.textContent = subtitle;
 
-  // Force hero visible immediately
   document.querySelectorAll(".hero h1, .hero h2, .hero-logo")
     .forEach(el => el.classList.add("show-on-scroll"));
 
   const heroLogo = document.querySelector(".hero-logo");
   if (heroLogo) heroLogo.classList.add("visible");
-});
 
-// ==================== Smooth Scroll for Navbar Links ====================
-document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+  // ---------- Smooth Scroll for Navbar Links ----------
+  document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ---------- Sticky Header Shrink on Scroll ----------
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
     }
+  });
+
+  // ---------- Lazy-load Images (with fade-in) ----------
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  const imgObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        imgObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  lazyImages.forEach(img => imgObserver.observe(img));
+
+  // ---------- Scroll-to-Top Button ----------
+  const scrollBtn = document.createElement("button");
+  scrollBtn.textContent = "↑ Top";
+  scrollBtn.className = "scroll-to-top";
+  document.body.appendChild(scrollBtn);
+
+  window.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 
-// ==================== Sticky Header Shrink on Scroll ====================
-const header = document.querySelector('.site-header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header.classList.add('shrink');
-  } else {
-    header.classList.remove('shrink');
+// ==================== Global Click Handlers (Modal + Accordion) ====================
+document.addEventListener("click", e => {
+  // Open modal
+  if (e.target.matches('.project-details-btn')) {
+    const id = e.target.dataset.modal;
+    const el = document.getElementById(`modal-${id}`);
+    if (el) el.style.display = "flex";
+    return;
   }
-});
+  // Close modal via X
+  if (e.target.matches('.close-modal')) {
+    const overlay = e.target.closest('.modal-overlay');
+    if (overlay) overlay.style.display = "none";
+    return;
+  }
+  // Close modal by clicking backdrop
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.style.display = "none";
+    return;
+  }
 
-// ==================== Lazy-load Images ====================
-const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-const imgObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      imgObserver.unobserve(entry.target);
+  // Accordion toggle (smooth)
+  if (e.target.classList.contains("accordion-header")) {
+    const item = e.target.parentElement;
+    const content = item.querySelector(".accordion-content");
+    if (!content) return;
+
+    if (item.classList.contains("active")) {
+      content.style.maxHeight = null;
+      item.classList.remove("active");
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      item.classList.add("active");
     }
-  });
-}, { threshold: 0.1 });
-
-lazyImages.forEach(img => imgObserver.observe(img));
-
-// ==================== Scroll-to-Top Button ====================
-const scrollBtn = document.createElement("button");
-scrollBtn.textContent = "↑ Top";
-scrollBtn.className = "scroll-to-top";
-document.body.appendChild(scrollBtn);
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
+    return;
   }
-});
 
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Expand All
+  if (e.target.id.startsWith("expand-all")) {
+    const modal = e.target.closest(".modal");
+    if (!modal) return;
+    modal.querySelectorAll(".accordion-item").forEach(item => {
+      const content = item.querySelector(".accordion-content");
+      if (!content) return;
+      content.style.maxHeight = content.scrollHeight + "px";
+      item.classList.add("active");
+    });
+    return;
+  }
+
+  // Collapse All
+  if (e.target.id.startsWith("collapse-all")) {
+    const modal = e.target.closest(".modal");
+    if (!modal) return;
+    modal.querySelectorAll(".accordion-item").forEach(item => {
+      const content = item.querySelector(".accordion-content");
+      if (!content) return;
+      content.style.maxHeight = null;
+      item.classList.remove("active");
+    });
+  }
 });
