@@ -1,3 +1,13 @@
+// ==================== Scroll Animations Observer ====================
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show-on-scroll');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
 // ==================== Projects Data ====================
 const projects = [
   {
@@ -82,7 +92,7 @@ projects.forEach(p => {
   `;
   container.appendChild(card);
 
-  // ✅ Ensure scroll animation works for dynamically added cards
+  // ✅ Observe dynamically added cards
   observer.observe(card);
 
   const modalOverlay = document.createElement("div");
@@ -111,15 +121,6 @@ document.addEventListener("click", e => {
 
 // ==================== Scroll Animations ====================
 const scrollElems = document.querySelectorAll('section, .card, .hero h1, .hero h2, .hero-logo');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show-on-scroll');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
 scrollElems.forEach(el => observer.observe(el));
 
 // 👉 Force hero to show immediately on page load
