@@ -73,6 +73,21 @@ const projects = [
       "Exchange, Teams, SharePoint management.",
       "Security policies, DLP, CA enforcement."
     ]
+  },
+  {
+    id: "windows",
+    title: "Windows Infrastructure Projects",
+    icon: "assets/icons/windows.png", 
+    desc: "Enterprise Windows deployments, automation, and system optimization.",
+    details: [
+      "Windows Server upgrades and Active Directory enhancements.",
+      "Enterprise Wide Windows OS Upgrade (Windows 7 to Windows 10 and Windows 10 to Windows 11).",
+      "Group Policy design and hardening.",
+      "Enterprise SCCM Modernization & Patch Optimization.",
+      "Automated OS deployment with MDT/Intune Autopilot.",
+      "Performance tuning and monitoring with native Windows tools.",
+      "Endpoint security and patch management improvements."
+    ]
   }
 ];
 
