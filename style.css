@@ -415,41 +415,57 @@ footer {
   transition-delay: 0.9s;
 }
 
-/* ==================== Card Animation ==================== */
+/* ==================== Card Animation with Glow ==================== */
 .card {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, opacity 0.8s ease;
+  transition: transform 0.3s ease, opacity 0.8s ease, box-shadow 0.8s ease;
   position: relative;
   overflow: hidden;
 
-  /* Initial hidden state for animation */
+  /* Initial hidden state */
   opacity: 0;
   transform: scale(0.95) translateY(20px);
 }
 
-/* Accent bar remains the same */
+/* Accent bar (default, overridden per section) */
 .card::before {
   content: "";
   display: block;
   position: absolute;
   top: 0; left: 0;
   height: 6px; width: 100%;
-  background: #0078d4; /* default accent, overridden per section */
+  background: #0078d4;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
-/* When card is visible on scroll */
+/* Visible state with zoom + glow */
 .card.show-on-scroll {
   opacity: 1 !important;
   transform: scale(1) translateY(0) !important;
 }
 
-/* Hover lift still applies after animation */
+/* Hover lift */
 .card:hover {
   transform: scale(1.02) translateY(-5px);
 }
+
+/* ==================== Section-Specific Accent Colors + Glow ==================== */
+#about .card::before { background: #0078d4; }
+#about .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #0078d4; }
+
+#experience .card::before { background: #f39c12; }
+#experience .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #f39c12; }
+
+#skills .card::before { background: #27ae60; }
+#skills .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #27ae60; }
+
+#certifications .card::before { background: #8e44ad; }
+#certifications .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #8e44ad; }
+
+#contact .card::before { background: #c0392b; }
+#contact .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #c0392b; }
