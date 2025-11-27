@@ -299,6 +299,7 @@ footer {
   transform: scale(1.02) translateY(-5px);
 }
 
+/* Lists inside cards */
 .card ul {
   padding-left: 20px;
   margin: 10px 0;
@@ -361,47 +362,7 @@ footer {
 
 /* ==================== Contact Card ==================== */
 .card.contact {
-  text-align: center;   /* center all text inside */
-}
-
-.card.contact p {
-  margin: 8px 0;
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;             /* space between icon and text */
-}
-
-/* Email & Phone icons */
-.card.contact p.email::before {
-  content: "✉️";        /* envelope icon */
-  font-size: 1.2em;
-}
-
-.card.contact p.phone::before {
-  content: "📞";        /* phone icon */
-  font-size: 1.2em;
-}
-
-/* Resume button */
-.card.contact .resume-button {
-  display: inline-block;
-  margin-top: 12px;
-  background: #0078d4;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.card.contact .resume-button:hover {
-  background: #005a9e;
-}
-/* ==================== Contact Card ==================== */
-.card.contact {
-  text-align: center;
+  text-align: center;     /* center all text inside */
 }
 
 /* Centered text with icons */
@@ -411,16 +372,17 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 8px;               /* space between icon and text */
 }
 
+/* Email & Phone icons */
 .card.contact p.email::before {
-  content: "✉️";
+  content: "✉️";          /* envelope icon */
   font-size: 1.2em;
 }
 
 .card.contact p.phone::before {
-  content: "📞";
+  content: "📞";          /* phone icon */
   font-size: 1.2em;
 }
 
@@ -619,5 +581,6 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
 
 
