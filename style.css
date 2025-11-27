@@ -104,6 +104,9 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  max-width: 1200px;   /* constrain grid width */
+  margin: 0 auto;      /* center grid with space left/right */
+  padding: 0 20px;     /* extra breathing room */
 }
 
 .project-card {
@@ -279,15 +282,21 @@ footer {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;              /* auto left/right centers the card */
+  max-width: 900px;               /* limit width so it doesn’t stretch full line */
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.8s ease, box-shadow 0.8s ease;
   position: relative;
   overflow: hidden;
+
+  /* Initial hidden state for animation */
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
 }
 
+/* Hover lift */
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02) translateY(-5px);
 }
 
 .card ul {
@@ -469,3 +478,4 @@ footer {
 
 #contact .card::before { background: #c0392b; }
 #contact .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #c0392b; }
+
