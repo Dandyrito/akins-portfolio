@@ -273,3 +273,27 @@ footer {
   color: #fff;
   margin-top: 40px;
 }
+
+/* ==================== Generic Card Styling ==================== */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure lists inside cards look neat */
+.card ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
