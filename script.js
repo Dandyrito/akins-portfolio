@@ -80,13 +80,13 @@ const projects = [
     icon: "assets/icons/windows-logo.png", 
     desc: "Enterprise Windows deployments, automation, and system optimization.",
     details: [
-      "Windows Server upgrades and Active Directory enhancements.",
-      "Enterprise Wide Windows OS Upgrade (Windows 7 to Windows 10 and Windows 10 to Windows 11).",
-      "Group Policy design and hardening.",
-      "Enterprise SCCM Modernization & Patch Optimization.",
-      "Automated OS deployment with MDT/Intune Autopilot.",
-      "Performance tuning and monitoring with native Windows tools.",
-      "Endpoint security and patch management improvements."
+      "🖥️ Windows Server: Upgrades, clustering, and Active Directory enhancements.",
+      "📂 Group Policy: Design, hardening, and compliance enforcement.",
+      "⚙️ OS Deployment: Automated builds with MDT and Intune Autopilot.",
+      "💻 Enterprise Wide Windows OS Upgrade: Windows 7 → 10 and Windows 10 → 11 migration.",
+      "📊 Performance: Tuning and monitoring with native Windows tools.",
+      "🔒 Endpoint Security: Patch management, Defender ATP, and vulnerability remediation.",
+      "🔧 Enterprise SCCM Modernization & Patch Optimization: Infrastructure upgrade, patch cycle optimization, and co‑management with Intune."
     ]
   }
 ];
