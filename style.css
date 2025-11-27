@@ -35,7 +35,7 @@ header.site-header{
 .hero{text-align:center;padding:100px 20px;background:#f0f9fb}
 .hero-logo{width:120px;height:auto;margin-bottom:20px}
 .hero h1,.hero h2,main section,.card,.project-card{
-  opacity:0;
+  /*opacity:0;*/
   transform:translateY(20px);
   transition:all .6s ease-out;
 }
@@ -155,3 +155,4 @@ img[loading="lazy"].visible {
   color: var(--deep-indigo);
   transform: translateY(-2px);
 }
+
