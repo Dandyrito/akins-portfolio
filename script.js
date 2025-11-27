@@ -82,9 +82,9 @@ projects.forEach(p => {
   `;
   container.appendChild(card);
 
-    // ✅ Ensure scroll animation works for dynamically added cards
+  // ✅ Ensure scroll animation works for dynamically added cards
   observer.observe(card);
-  
+
   const modalOverlay = document.createElement("div");
   modalOverlay.className = "modal-overlay";
   modalOverlay.id = `modal-${p.id}`;
