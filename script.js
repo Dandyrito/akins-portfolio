@@ -1,6 +1,69 @@
 // ==================== Projects Data ====================
 const projects = [
-  // ... (your projects array stays the same)
+  {
+    id: "aws",
+    title: "AWS Infrastructure Modernization",
+    icon: "assets/icons/cloud-server.png",
+    desc: "Hybrid cloud migration, automation, and monitoring modernization.",
+    details: [
+      "Hybrid cloud migration using EC2, S3, VPC, CloudWatch & Auto Scaling.",
+      "VMware workload migration and performance improvement.",
+      "Automation using Terraform & CloudFormation.",
+      "Enhanced reliability via monitoring pipelines."
+    ]
+  },
+  {
+    id: "intune",
+    title: "Intune & Autopilot Deployment",
+    icon: "assets/icons/secure-endpoint.png",
+    desc: "Modern device management, compliance enforcement and provisioning automation.",
+    details: [
+      "Modern device management rollout.",
+      "Compliance policies, profiles & conditional access.",
+      "60% reduction in onboarding time."
+    ]
+  },
+  {
+    id: "network",
+    title: "Network Upgrade & Optimization",
+    icon: "assets/icons/network-topology.png",
+    desc: "Multi-site network refresh, Wi-Fi optimization and segmentation redesign.",
+    details: [
+      "Switches, APs, firewalls refresh.",
+      "Telemetry-based performance optimization"
+    ]
+  },
+  {
+    id: "adds",
+    title: "Active Directory Domain Consolidation",
+    icon: "assets/icons/ad-ds.png",
+    desc: "Security hardening, identity governance, and forest/domain cleanup.",
+    details: [
+      "Multi-domain cleanup & consolidation.",
+      "GPO hardening and identity governance."
+    ]
+  },
+  {
+    id: "dns",
+    title: "DNS Security & High Availability",
+    icon: "assets/icons/dns.png",
+    desc: "DNS failover, secure configuration, replication tuning and HA.",
+    details: [
+      "Failover, scavenging & HA DNS design.",
+      "Security hardening against spoofing & poisoning."
+    ]
+  },
+  {
+    id: "m365",
+    title: "Microsoft 365 Tenant Governance",
+    icon: "assets/icons/tenant-management.png",
+    desc: "Identity lifecycle, mailflow, security policies and automation.",
+    details: [
+      "Tenant lifecycle governance.",
+      "Exchange, Teams, SharePoint management.",
+      "Security policies, DLP, CA enforcement."
+    ]
+  }
 ];
 
 // ==================== Generate Project Cards & Modals ====================
@@ -56,10 +119,15 @@ const observer = new IntersectionObserver(entries => {
 
 scrollElems.forEach(el => observer.observe(el));
 
-// 👉 Ensure hero is visible immediately
+// 👉 Force hero to show immediately on page load
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".hero h1, .hero h2, .hero-logo")
     .forEach(el => el.classList.add("show-on-scroll"));
+
+  const heroLogo = document.querySelector(".hero-logo");
+  if (heroLogo) {
+    heroLogo.classList.add("visible");
+  }
 });
 
 // ==================== Smooth Scroll for Navbar Links ====================
@@ -100,18 +168,6 @@ lazyImages.forEach(img => imgObserver.observe(img));
 const scrollBtn = document.createElement("button");
 scrollBtn.textContent = "↑ Top";
 scrollBtn.className = "scroll-to-top";
-scrollBtn.style.position = "fixed";
-scrollBtn.style.bottom = "30px";
-scrollBtn.style.right = "30px";
-scrollBtn.style.padding = "10px 15px";
-scrollBtn.style.borderRadius = "6px";
-scrollBtn.style.border = "none";
-scrollBtn.style.background = "#00b8d4";
-scrollBtn.style.color = "#fff";
-scrollBtn.style.fontWeight = "600";
-scrollBtn.style.cursor = "pointer";
-scrollBtn.style.display = "none";
-scrollBtn.style.zIndex = "1000";
 document.body.appendChild(scrollBtn);
 
 window.addEventListener("scroll", () => {
