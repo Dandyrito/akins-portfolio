@@ -137,7 +137,7 @@ img[loading="lazy"].visible {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  padding: 10px 15px;
+  padding: 12px 18px;
   border-radius: 6px;
   border: none;
   background: var(--teal);
@@ -147,10 +147,11 @@ img[loading="lazy"].visible {
   display: none; /* hidden by default */
   z-index: 1000;
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .scroll-to-top:hover {
   background: var(--light-teal);
   color: var(--deep-indigo);
+  transform: translateY(-2px);
 }
