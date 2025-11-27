@@ -99,25 +99,25 @@ projects.forEach(p => {
 
 // ==================== Modal Logic ====================
 document.addEventListener("click", e => {
-  if(e.target.matches('.project-details-btn')){
-    document.getElementById(`modal-${e.target.dataset.modal}`).style.display="flex";
-  } else if(e.target.matches('.close-modal')){
-    e.target.closest('.modal-overlay').style.display="none";
-  } else if(e.target.classList.contains('modal-overlay')){
-    e.target.style.display="none";
+  if (e.target.matches('.project-details-btn')) {
+    document.getElementById(`modal-${e.target.dataset.modal}`).style.display = "flex";
+  } else if (e.target.matches('.close-modal')) {
+    e.target.closest('.modal-overlay').style.display = "none";
+  } else if (e.target.classList.contains('modal-overlay')) {
+    e.target.style.display = "none";
   }
 });
 
 // ==================== Scroll Animations ====================
-const scrollElems = document.querySelectorAll('section,.card,.hero h1,.hero h2');
+const scrollElems = document.querySelectorAll('section, .card, .hero h1, .hero h2, .hero-logo');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
+    if (entry.isIntersecting) {
       entry.target.classList.add('show-on-scroll');
       observer.unobserve(entry.target);
     }
   });
-}, {threshold: 0.1});
+}, { threshold: 0.1 });
 
 scrollElems.forEach(el => observer.observe(el));
 
@@ -125,14 +125,17 @@ scrollElems.forEach(el => observer.observe(el));
 document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 
 // ==================== Sticky Header Shrink on Scroll ====================
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
-  if(window.scrollY > 50){
+  if (window.scrollY > 50) {
     header.classList.add('shrink');
   } else {
     header.classList.remove('shrink');
@@ -143,11 +146,41 @@ window.addEventListener('scroll', () => {
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 const imgObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
+    if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       imgObserver.unobserve(entry.target);
     }
   });
-},{threshold:0.1});
+}, { threshold: 0.1 });
 
 lazyImages.forEach(img => imgObserver.observe(img));
+
+// ==================== Scroll-to-Top Button ====================
+const scrollBtn = document.createElement("button");
+scrollBtn.textContent = "↑ Top";
+scrollBtn.className = "scroll-to-top";
+scrollBtn.style.position = "fixed";
+scrollBtn.style.bottom = "30px";
+scrollBtn.style.right = "30px";
+scrollBtn.style.padding = "10px 15px";
+scrollBtn.style.borderRadius = "6px";
+scrollBtn.style.border = "none";
+scrollBtn.style.background = "#00b8d4";
+scrollBtn.style.color = "#fff";
+scrollBtn.style.fontWeight = "600";
+scrollBtn.style.cursor = "pointer";
+scrollBtn.style.display = "none";
+scrollBtn.style.zIndex = "1000";
+document.body.appendChild(scrollBtn);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
