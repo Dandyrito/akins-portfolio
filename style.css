@@ -99,6 +99,55 @@ section {
   transition: opacity 1s ease 0.3s;
 }
 
+/* ==================== Glow Pulse Animations ==================== */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 0 currentColor;
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 20px currentColor;
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px currentColor;
+  }
+}
+
+/* Section-specific glow pulses with stagger */
+#about .card.show-on-scroll {
+  color: #0078d4;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+#experience .card.show-on-scroll {
+  color: #f39c12;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+#skills .card.show-on-scroll {
+  color: #27ae60;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+#certifications .card.show-on-scroll {
+  color: #8e44ad;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+
+#contact .card.show-on-scroll {
+  color: #c0392b;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.9s;
+  transition-delay: 0.9s;
+}
+
 /* ==================== Projects Grid ==================== */
 #projects-container {
   display: grid;
@@ -312,6 +361,7 @@ footer {
 /* ==================== Accent Bars by Section ==================== */
 #about .card::before {
   content: "";
+  display: block;
   position: absolute;
   top: 0; left: 0;
   height: 6px; width: 100%;
@@ -400,6 +450,55 @@ footer {
 
 .card.contact .resume-button:hover {
   background: #005a9e;
+}
+
+/* ==================== Glow Pulse Animations ==================== */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 0 currentColor;
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 20px currentColor;
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px currentColor;
+  }
+}
+
+/* Section-specific glow pulses with stagger */
+#about .card.show-on-scroll {
+  color: #0078d4;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+#experience .card.show-on-scroll {
+  color: #f39c12;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+#skills .card.show-on-scroll {
+  color: #27ae60;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+#certifications .card.show-on-scroll {
+  color: #8e44ad;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+
+#contact .card.show-on-scroll {
+  color: #c0392b;
+  animation: glowPulse 1.2s ease-out 1;
+  animation-delay: 0.9s;
+  transition-delay: 0.9s;
 }
 
 /* Glow effect when Contact card appears */
@@ -581,6 +680,7 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
 
 
 
