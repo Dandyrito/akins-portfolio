@@ -77,7 +77,7 @@ const projects = [
   {
     id: "windows",
     title: "Windows Infrastructure Projects",
-    icon: "assets/icons/windows.png", 
+    icon: "assets/icons/windows-logo.png", 
     desc: "Enterprise Windows deployments, automation, and system optimization.",
     details: [
       "Windows Server upgrades and Active Directory enhancements.",
