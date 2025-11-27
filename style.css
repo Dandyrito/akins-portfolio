@@ -370,3 +370,86 @@ footer {
 #contact h3 {
   color: #c0392b; /* Red for Contact */
 }
+
+/* ==================== Section Background Tints ==================== */
+#about, #experience, #skills, #certifications, #contact {
+  padding: 60px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  opacity: 0;                
+  transform: translateY(20px); 
+  transition: all 0.8s ease; 
+}
+
+/* Specific background colors */
+#about { background: #f0f8ff; }          /* very light blue */
+#experience { background: #fffaf3; }     /* very light orange/cream */
+#skills { background: #f5fff5; }         /* very light green */
+#certifications { background: #faf5ff; } /* very light purple */
+#contact { background: #fff5f5; }        /* very light red/pink */
+
+/* When section is visible on scroll */
+.show-on-scroll {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ==================== Staggered Animation Delays ==================== */
+#about.show-on-scroll {
+  transition-delay: 0.1s;
+}
+
+#experience.show-on-scroll {
+  transition-delay: 0.3s;
+}
+
+#skills.show-on-scroll {
+  transition-delay: 0.5s;
+}
+
+#certifications.show-on-scroll {
+  transition-delay: 0.7s;
+}
+
+#contact.show-on-scroll {
+  transition-delay: 0.9s;
+}
+
+/* ==================== Card Animation ==================== */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, opacity 0.8s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* Initial hidden state for animation */
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+}
+
+/* Accent bar remains the same */
+.card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #0078d4; /* default accent, overridden per section */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* When card is visible on scroll */
+.card.show-on-scroll {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Hover lift still applies after animation */
+.card:hover {
+  transform: scale(1.02) translateY(-5px);
+}
