@@ -479,3 +479,57 @@ footer {
 #contact .card::before { background: #c0392b; }
 #contact .card.show-on-scroll { box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 12px #c0392b; }
 
+/* ==================== Responsive Layout ==================== */
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .card {
+    max-width: 95%;   /* cards nearly full width */
+    margin: 20px auto;
+  }
+
+  #projects-container {
+    max-width: 95%;
+    padding: 0 10px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%;  /* full width on mobile */
+    margin: 15px auto;
+    padding: 15px;
+  }
+
+  #projects-container {
+    grid-template-columns: 1fr; /* single column grid */
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;   /* allow nav links to wrap */
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Large screens (desktops wider than 1400px) */
+@media (min-width: 1400px) {
+  .card {
+    max-width: 1000px; /* cards expand a bit more */
+  }
+
+  #projects-container {
+    max-width: 1400px; /* wider grid */
+  }
+}
