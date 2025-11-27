@@ -282,13 +282,14 @@ footer {
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-/* Ensure lists inside cards look neat */
 .card ul {
   padding-left: 20px;
   margin: 10px 0;
@@ -296,4 +297,76 @@ footer {
 
 .card li {
   margin-bottom: 6px;
+}
+
+/* ==================== Accent Bars by Section ==================== */
+#about .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #0078d4; /* Blue for About */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#experience .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #f39c12; /* Orange for Experience */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#skills .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #27ae60; /* Green for Skills */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#certifications .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #8e44ad; /* Purple for Certifications */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#contact .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 6px; width: 100%;
+  background: #c0392b; /* Red for Contact */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* ==================== Section Headings ==================== */
+#about h3 {
+  color: #0078d4; /* Blue for About */
+}
+
+#experience h3 {
+  color: #f39c12; /* Orange for Experience */
+}
+
+#skills h3 {
+  color: #27ae60; /* Green for Skills */
+}
+
+#certifications h3 {
+  color: #8e44ad; /* Purple for Certifications */
+}
+
+#contact h3 {
+  color: #c0392b; /* Red for Contact */
 }
