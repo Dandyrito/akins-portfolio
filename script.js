@@ -123,15 +123,34 @@ document.addEventListener("click", e => {
 const scrollElems = document.querySelectorAll('section, .card, .hero h1, .hero h2, .hero-logo');
 scrollElems.forEach(el => observer.observe(el));
 
-// 👉 Force hero to show immediately on page load
+// ==================== Sync <title> with Hero Section ====================
 document.addEventListener("DOMContentLoaded", () => {
+  // Get the <title> text
+  const pageTitle = document.title;
+
+  // Try to split into name and subtitle using " - "
+  let name = pageTitle;
+  let subtitle = "";
+
+  if (pageTitle.includes(" - ")) {
+    const parts = pageTitle.split(" - ");
+    name = parts[0].trim();
+    subtitle = parts[1].trim();
+  }
+
+  // Inject into hero section
+  const heroTitle = document.getElementById("hero-title");
+  const heroSubtitle = document.getElementById("hero-subtitle");
+
+  if (heroTitle) heroTitle.textContent = name;
+  if (heroSubtitle && subtitle) heroSubtitle.textContent = subtitle;
+
+  // Force hero visible immediately
   document.querySelectorAll(".hero h1, .hero h2, .hero-logo")
     .forEach(el => el.classList.add("show-on-scroll"));
 
   const heroLogo = document.querySelector(".hero-logo");
-  if (heroLogo) {
-    heroLogo.classList.add("visible");
-  }
+  if (heroLogo) heroLogo.classList.add("visible");
 });
 
 // ==================== Smooth Scroll for Navbar Links ====================
