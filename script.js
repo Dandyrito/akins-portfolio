@@ -128,3 +128,26 @@ document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
     document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
   });
 });
+
+// ==================== Sticky Header Shrink on Scroll ====================
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50){
+    header.classList.add('shrink');
+  } else {
+    header.classList.remove('shrink');
+  }
+});
+
+// ==================== Lazy-load Images ====================
+const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+const imgObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      imgObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+
+lazyImages.forEach(img => imgObserver.observe(img));
