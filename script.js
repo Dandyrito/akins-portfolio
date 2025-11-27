@@ -40,6 +40,8 @@ const projects = [
     desc: "Multi-site network refresh, Wi-Fi optimization and segmentation redesign.",
     details: [
       "Switches, APs, firewalls refresh.",
+      "Enterprise Wide Switch Lifecyle Project (Commodity to Cisco Switch),",
+      "LAN and WAN Deployment.",
       "Telemetry-based performance optimization"
     ]
   },
