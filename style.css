@@ -131,3 +131,26 @@ img[loading="lazy"].visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Scroll-to-top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  display: none; /* hidden by default */
+  z-index: 1000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s, color 0.3s;
+}
+
+.scroll-to-top:hover {
+  background: var(--light-teal);
+  color: var(--deep-indigo);
+}
