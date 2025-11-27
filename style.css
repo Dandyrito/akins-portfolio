@@ -16,27 +16,52 @@ section {
   padding: 60px 20px;
 }
 
-/* ==================== Navbar ==================== */
-.navbar {
+/* ==================== Header & Navbar ==================== */
+.site-header {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
   background: #0078d4;
-  padding: 15px;
+  padding: 15px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;   /* constrain header logo size */
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+.site-header.shrink .logo {
+  height: 35px;   /* shrink logo when scrolling */
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
 .navbar a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.site-header.shrink .navbar {
-  padding: 8px;
+.navbar a:hover {
+  color: #cce6ff;
+}
+
+.site-header.shrink {
+  padding: 8px 20px;
   background: #005a9e;
 }
 
@@ -49,7 +74,8 @@ section {
 }
 
 .hero-logo {
-  width: 120px;
+  width: 120px;   /* controlled hero logo size */
+  height: auto;
   margin-bottom: 20px;
   opacity: 0;
   transition: opacity 1s ease;
@@ -239,3 +265,11 @@ img[loading="lazy"].visible {
   background: #005a9e;
 }
 
+/* ==================== Footer ==================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0078d4;
+  color: #fff;
+  margin-top: 40px;
+}
