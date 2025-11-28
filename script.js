@@ -96,8 +96,8 @@ const projects = [
     desc: "Enterprise Information Security Projects",
     details: [
       "MFA / SSO Implementation.",
-      "Zero Trust Architecture",
-      "ISO 27001 Compliance Projects"
+      "Zero Trust Architecture.",
+      "ISO 27001 Compliance Projects."
     ]
   }
 ];
