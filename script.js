@@ -90,7 +90,18 @@ const projects = [
       { title: "💻 Enterprise Wide Windows OS Upgrade", content: "Windows 7 → 10 and Windows 10 → 11 migration." },
       { title: "🔧 Enterprise SCCM Modernization & Patch Optimization", content: "Infrastructure upgrade, patch cycle optimization, and co‑management with Intune." }
     ]
-  }
+  },
+  {
+    id: "infosec",
+    title: "InfoSec",
+    icon: "assets/icons/infosec.png",
+    desc: "Enterprise Information Security Projects",
+    details: [
+      "MFA / SSO Implementation.",
+      "Zero Trust Architecture",
+      "ISO 27001 Compliance Projects"
+  ]
+}
 ];
 
 // ==================== DOM-Ready Initialization ====================
