@@ -690,7 +690,7 @@ footer {
 
 /* Background tint for InfoSec card */
 .card.infosec {
-  background: #f7f9fb; /* very light navy tint */
+  background: #f0fdfd; /* very light navy tint */
 }
 
 /* ==================== Responsive Layout ==================== */
@@ -747,3 +747,4 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
