@@ -40,9 +40,9 @@ const projects = [
     desc: "Multi-site network refresh, Wi-Fi optimization and segmentation redesign.",
     details: [
       "Switches, APs, firewalls refresh.",
-      "Enterprise Wide Switch Lifecyle Project (Commodity to Cisco Switch),",
+      "Enterprise Wide Switch Lifecyle Project (Commodity to Cisco Switch).",
       "LAN and WAN Deployment.",
-      "Telemetry-based performance optimization"
+      "Telemetry-based performance optimization."
     ]
   },
   {
@@ -93,15 +93,15 @@ const projects = [
   },
   {
     id: "infosec",
-    title: "InfoSec",
+    title: "Information Security",
     icon: "assets/icons/infosec.png",
-    desc: "Enterprise Information Security Projects",
+    desc: "Enterprise Information Security Projects.",
     details: [
       "MFA / SSO Implementation.",
-      "Zero Trust Architecture",
-      "ISO 27001 Compliance Projects"
-  ]
-}
+      "Zero Trust Architecture.",
+      "ISO 27001 Compliance Projects."
+    ]
+  }
 ];
 
 // ==================== DOM-Ready Initialization ====================
