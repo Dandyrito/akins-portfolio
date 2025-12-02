@@ -765,11 +765,43 @@ footer {
   box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #0078d4;
 }
 
+/* Icon styling */
 .skill-icon {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #0078d4; /* accent color */
   display: block;
+}
+
+/* Category-specific variations */
+.skill-card.cloud {
+  border-top-color: #2ecc71; /* bright green */
+}
+.skill-card.cloud:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #2ecc71;
+}
+.skill-card.infrastructure {
+  border-top-color: #27ae60; /* deep green */
+}
+.skill-card.infrastructure:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #27ae60;
+}
+.skill-card.automation {
+  border-top-color: #58d68d; /* lime green */
+}
+.skill-card.automation:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #58d68d;
+}
+.skill-card.itms {
+  border-top-color: #45b39d; /* teal-green */
+}
+.skill-card.itms:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #45b39d;
+}
+.skill-card.leadership {
+  border-top-color: #1abc9c; /* aqua-green */
+}
+.skill-card.leadership:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #1abc9c;
 }
 
 /* ==================== Responsive Layout ==================== */
@@ -826,6 +858,7 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
 
 
 
