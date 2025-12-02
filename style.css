@@ -756,6 +756,8 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   font-weight: 500;
+  /* Green accent line */
+  border-top: 4px solid #28a745; /* theme green */
 }
 
 .skill-card:hover {
@@ -824,5 +826,6 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
 
 
