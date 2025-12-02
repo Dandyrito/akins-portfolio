@@ -734,6 +734,35 @@ footer {
   margin-bottom: 6px;
 }
 
+/* ==================== Skills Section ==================== */
+#skills {
+  padding: 60px 20px;
+  background: #f9fafb; /* light neutral background */
+}
+
+#skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  font-weight: 500;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12), 0 0 12px #0078d4;
+}
+
 /* ==================== Responsive Layout ==================== */
 
 /* Medium screens (tablets) */
@@ -788,3 +817,4 @@ footer {
     max-width: 1400px; /* wider grid */
   }
 }
+
